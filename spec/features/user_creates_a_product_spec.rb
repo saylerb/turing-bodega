@@ -22,6 +22,8 @@ RSpec.feature "User creates a product" do
 
     expect(page).to have_content("Breakfast Burrito")
     expect(page).to have_content("The best kind of burrito")
-    expect(page).to have_css("img[src=\"#{artist_image_path}\"]")
+    expect(page).to have_css("img[src=\"#{product_image_path}\"]")
+
+    save_and_open_page
   end
 end
