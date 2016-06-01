@@ -32,5 +32,6 @@ RSpec.feature "User edits an existing artist" do
    
     # Then I should see the existing image
     expect(page).to have_css("img[src=\"#{product_image_path}\"]")
+    save_and_open_page
   end
 end
