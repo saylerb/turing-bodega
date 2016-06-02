@@ -6,7 +6,6 @@ RSpec.feature "User edits an existing artist" do
 
     # As a user
     # Given that a product exists in the database
-
     product_image_path = "http://img14.deviantart.net/a9b6/i/2008/229/f/2/breakfast_burrito_by_cb_smizzle.jpg"
 
     product = Product.create(name: "Breakfast Burrito", description: "Best burrito", image_path: product_image_path )
@@ -20,7 +19,6 @@ RSpec.feature "User edits an existing artist" do
     expect(current_path).to eq( edit_product_path(product) )
 
     # And I fill in a new name
-    # save_and_open_page
     fill_in "Name", with: "Breakfast Burrito UPDATED NAME"
     
     # And I click on "Update Artist"
@@ -32,6 +30,5 @@ RSpec.feature "User edits an existing artist" do
    
     # Then I should see the existing image
     expect(page).to have_css("img[src=\"#{product_image_path}\"]")
-    save_and_open_page
   end
 end
