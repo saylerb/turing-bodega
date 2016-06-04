@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.create(product_params)
+    flash[:notice] = "Sucessfully Created '#{@product.name}'"
     redirect_to product_path(@product)
   end
 

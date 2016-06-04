@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "User creates a product" do
-  scenario "User sees product index page and adds product" do 
+  scenario "with valid attributes" do 
     # As a User
     product_image_path = "http://img14.deviantart.net/a9b6/i/2008/229/f/2/breakfast_burrito_by_cb_smizzle.jpg"
     # When I visit the products index page
@@ -23,5 +23,6 @@ RSpec.feature "User creates a product" do
     expect(page).to have_content("Breakfast Burrito")
     expect(page).to have_content("The best kind of burrito")
     expect(page).to have_css("img[src=\"#{product_image_path}\"]")
+    expect(page).to have_content("Sucessfully Created 'Breakfast Burrito")
   end
 end
