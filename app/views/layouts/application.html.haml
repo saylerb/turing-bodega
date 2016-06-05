@@ -7,16 +7,12 @@
   %title Turing Bodega
 
 %body
-  %div{ :class => "navbar navbar-default navbar-collapse" }
-    %a{ :href => "/", :class => "navbar-brand"} Turing Bodega
-    %ul{ :class => "nav navbar-nav navbar-right" }
-      - if current_user
-        %li= link_to "Logout", logout_path, method: :delete
-      - else
-        %li= link_to "Login", login_path
-
+  = render 'layouts/navbar'
   %div{ :class => "container" }
+    - flash.each do |type, msg|
+      = content_tag :div, msg, class: "flash_#{type}"
     =yield
+
 
 
 

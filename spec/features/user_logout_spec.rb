@@ -9,12 +9,16 @@ RSpec.feature "User Logout" do
 
     fill_in "Username", with: "brian"
     fill_in "Password", with: "password"
+
     click_button "Login"
 
-    expect(page).to have_content("Welcome, brian")
+    expect(page).to have_selector("#welcome")
+    within("#welcome") do 
+      expect(page).to have_content("Welcome, brian!")
+    end
 
     click_link "Logout"
 
-    expect(page).to_not have_content("Welcome, brian")
+    expect(page).not_to have_selector("#welcome")
   end
 end

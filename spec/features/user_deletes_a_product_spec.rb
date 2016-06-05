@@ -31,8 +31,10 @@ RSpec.feature "Delete product" do
     expect(current_path).to eq(products_path)
 
     # Then I should not see the product's name
-    expect(page).to_not have_content("Breakfast Burrito")
-    expect(page).to have_content("Pabst Blue Ribbon")
+    within("div.container") do
+      expect(page).to_not have_content("Breakfast Burrito")
+      expect(page).to have_content("Pabst Blue Ribbon")
+    end
 
   end
 end

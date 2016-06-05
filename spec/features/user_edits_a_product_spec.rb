@@ -25,10 +25,12 @@ RSpec.feature "User edits an existing artist" do
     click_on "Update Product"
    
     # Then I should see the artist's updated name
-    expect(current_path).to eq( product_path(product) )
-    expect(page).to have_content("Breakfast Burrito UPDATED NAME")
+    within("div.container") do
+      expect(current_path).to eq( product_path(product) )
+      expect(page).to have_content("Breakfast Burrito UPDATED NAME")
    
     # Then I should see the existing image
     expect(page).to have_css("img[src=\"#{product_image_path}\"]")
+    end
   end
 end

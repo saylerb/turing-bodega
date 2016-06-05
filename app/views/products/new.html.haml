@@ -3,8 +3,8 @@
 = bootstrap_form_for(@product, layout: :horizontal, 
                      label_col: "col-sm-2",
                      control_col: "col-sm-6") do |f|
-  = f.text_field :name
+  = f.text_field :name, label: "Product Name"
   = f.text_area :description
-  = f.text_area :image_path, html: { class: "form-control" }
+  = f.text_area :image_path, label: "Image Path"
   = f.submit
 

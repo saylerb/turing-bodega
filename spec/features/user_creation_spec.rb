@@ -8,7 +8,9 @@ RSpec.feature "User Creation" do
     fill_in "Password", with: "password"
     click_button "Create Account"
 
-    expect(page).to have_content("Welcome, brian")
+    within(find_by_id("welcome")) do 
+      expect(page).to have_content("Welcome, brian!")
+    end
 
   end
 end
