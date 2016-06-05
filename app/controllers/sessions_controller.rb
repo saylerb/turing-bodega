@@ -10,13 +10,14 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      # either user doesn't exist or password is incorrect
-    # Redirect
+      flash.now[:alert] = "Invalid. Try Again."
+      render :new
     end
   end
 
   def destroy
     session.clear
+    flash[:notice] = "Goodbye!"
     redirect_to login_path
   end
 
