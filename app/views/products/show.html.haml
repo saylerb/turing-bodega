@@ -1,0 +1,10 @@
+%h1= @product.name
+
+%p= image_tag @product.image_path
+
+%p= @product.description
+
+%p= link_to "Edit", edit_product_path(@product)
+%p= link_to "Delete", product_path(@product), method: :delete
+
+

@@ -1,0 +1,11 @@
+%h1 Edit Product
+
+= form_for(@product) do |f|
+  = f.label :name, "Product Name"
+  = f.text_field :name
+  = f.label :description, "Description"
+  = f.text_area :description
+  = f.label :image_path, "Image Path"
+  = f.text_area :image_path
+  = f.submit
+
