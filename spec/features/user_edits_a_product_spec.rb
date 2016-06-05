@@ -25,7 +25,7 @@ RSpec.feature "User edits an existing artist" do
     click_on "Update Product"
    
     # Then I should see the artist's updated name
-    within("div.container") do
+    within("div#content") do
       expect(current_path).to eq( product_path(product) )
       expect(page).to have_content("Breakfast Burrito UPDATED NAME")
    

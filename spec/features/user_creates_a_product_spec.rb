@@ -20,11 +20,14 @@ RSpec.feature "User creates a product" do
     # I should see the product, description, and image path on the page for that specific product
     expect(current_path).to eq(product_path(Product.last.id))
 
-    within "div.container" do
+    within "div#flash" do
+      expect(page).to have_content("Sucessfully Created 'Breakfast Burrito")
+    end
+
+    within "div#content" do
       expect(page).to have_content("Breakfast Burrito")
       expect(page).to have_content("The best kind of burrito")
       expect(page).to have_css("img[src=\"#{product_image_path}\"]")
-      expect(page).to have_content("Sucessfully Created 'Breakfast Burrito")
     end
 
   end
