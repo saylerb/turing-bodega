@@ -5,6 +5,7 @@
     %div{ class: "navbar-collapse collapse" }
       %ul{ class: "nav navbar-nav" }
         %li= link_to "Home", products_path
+        %li= link_to "Add New Product", new_product_path
       %ul{ :class => "nav navbar-nav navbar-right" }
         - if current_user
           %li{ class: "navbar-text", id: "welcome" }= "Welcome, #{current_user.username}!"
