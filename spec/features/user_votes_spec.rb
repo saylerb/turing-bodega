@@ -8,7 +8,7 @@ RSpec.feature "User votes" do
 
     user = User.create(username: "brian", password: "password")
     # When I visit a product page
-
+    allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
     visit product_path(product)
     
     # I can click a vote button
