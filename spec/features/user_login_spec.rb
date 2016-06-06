@@ -16,12 +16,15 @@ RSpec.feature "User logs in" do
     click_button "Login"
 
     within("div#flash") do 
-      expect(page).to have_content("Invalid. Try Again.")
+        expect(page).to have_content("Invalid. Try Again.")
     end
+
+    expect(current_path).to eq(login_path)
 
     within("div#content") do
       expect(page).to have_content("Login")
     end
+
   end
 
   scenario "with incorrect password" do
@@ -31,9 +34,9 @@ RSpec.feature "User logs in" do
     fill_in "Password", with: "incorrectpassword"
     click_button "Login"
 
-    within("div#flash") do 
-      expect(page).to have_content("Invalid. Try Again.")
-    end
+    # within("div#flash") do 
+    #   expect(page).to have_content("Invalid. Try Again.")
+    # end
 
     within("div#content") do
       expect(page).to have_content("Login")
@@ -57,7 +60,6 @@ RSpec.feature "User logs in" do
       expect(page).to have_content("Login")
     end
   end
-
 
   def login_user
     user = User.create(username: "brian", password: "password")
