@@ -6,5 +6,6 @@
 
 %p= link_to "Edit", edit_product_path(@product)
 %p= link_to "Delete", product_path(@product), method: :delete
+%p= link_to "Vote Up", product_votes_path(@product), method: :post
 
 
